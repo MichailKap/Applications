@@ -54,7 +54,6 @@ export default {
   },
   data() {
     return {
-      pageRange: 2,
       width: null
     }
   },
@@ -78,8 +77,19 @@ export default {
     }
   },
   computed:{
+    pageRange() {
+      var pageRange = 0
+
+      if (this.width > 480) {
+        return pageRange = 2
+      }
+      else {
+        return pageRange = 3
+      }
+    },
     perPage() {
       var perPage = 0
+
       if (this.width > 768) {
         return perPage = 12
       }
@@ -160,12 +170,17 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  align-content: flex-start;
+  min-height: 300px;
+  @include _600 {
+    min-height: 270px;
+  }
 }
 .item {
   padding: 15px;
   width: 25%;
+  height: 33.3%;
   @include _768 {
-    padding: 12px;
     width: 33.3%;
   }
   @include _600 {
@@ -194,7 +209,7 @@ export default {
     background-color: $darkblue;
   }
   @include _600 {
-    width: 40px;
+    display: none;
   }
 }
 .disabled {
@@ -209,6 +224,9 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include _600 {
+    margin: 0 auto;
+  }
 }
 .number {
   background-color: #fff;

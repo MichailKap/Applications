@@ -68,8 +68,8 @@ export default {
 .filter {
   padding: 20px;
   border: 1px solid #ccc;
-  min-height: 286px;
-  max-height: 310px;
+  min-height: 300px;
+  max-height: 314px;
 }
 .text {
   color: $blue;
